@@ -1,0 +1,51 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -v)",
+      "Bash(mysql --version)",
+      "Bash(where mysql *)",
+      "Bash(npx --yes create-next-app@latest . --ts --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack)",
+      "Bash(npx --yes create-next-app@latest _scaffold_tmp --ts --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack)",
+      "Bash(npx --yes create-next-app@latest scaffold-tmp --ts --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack)",
+      "Bash(cd \"d:/Personal/Project Docs/personal-finance-app-planning-docs/scaffold-tmp\" && rm -rf .git && ls -la)",
+      "Bash(rm -f CLAUDE.md AGENTS.md)",
+      "Bash(rm -rf .next)",
+      "Bash(npx --yes shadcn@latest init -d --base-color neutral)",
+      "Bash(npx --yes shadcn@latest init --help)",
+      "Bash(npx --yes shadcn@latest init -d)",
+      "Bash(npx --yes shadcn@latest add input label card dialog select dropdown-menu sheet tabs badge separator avatar skeleton sonner popover calendar checkbox switch table alert-dialog form tooltip --yes)",
+      "Bash(npm install *)",
+      "Bash(docker --version)",
+      "PowerShell(Start-Process \"C:\\\\Program Files\\\\Docker\\\\Docker\\\\Docker Desktop.exe\" -ErrorAction SilentlyContinue)",
+      "Bash(docker info *)",
+      "Bash(docker compose *)",
+      "Bash(npm run *)",
+      "Bash(npx --yes @next/codemod@canary middleware-to-proxy --dry)",
+      "Bash(rm src/middleware.ts)",
+      "Bash(powershell -NoProfile -Command 'Get-CimInstance Win32_Process -Filter \"Name='\\\\''node.exe'\\\\''\" | Where-Object { $_.CommandLine -like '\\\\''*next dev*'\\\\'' } | Select-Object ProcessId,CommandLine')",
+      "Bash(curl -s http://localhost:3000/ -o /dev/null -w \"%{http_code}\\\\n\")",
+      "Bash(rm -f /tmp/cookies_a.txt /tmp/cookies_b.txt)",
+      "Bash(curl -s -c /tmp/cookies_a.txt -X POST http://localhost:3000/api/auth/register -H 'Content-Type: application/json' -d '{\"email\":\"alice@example.com\",\"password\":\"password123\",\"passwordConfirmation\":\"password123\",\"firstName\":\"Alice\"}')",
+      "Bash(curl -s -c /tmp/cookies_b.txt -X POST http://localhost:3000/api/auth/register -H 'Content-Type: application/json' -d '{\"email\":\"bob@example.com\",\"password\":\"password123\",\"passwordConfirmation\":\"password123\",\"firstName\":\"Bob\"}')",
+      "Bash(curl -s -o /dev/null -w '%{http_code}\\\\n' -X POST http://localhost:3000/api/auth/register -H 'Content-Type: application/json' -d '{\"email\":\"alice@example.com\",\"password\":\"password123\",\"passwordConfirmation\":\"password123\"}')",
+      "Bash(curl -s -X POST http://localhost:3000/api/auth/login -H 'Content-Type: application/json' -d '{\"email\":\"alice@example.com\",\"password\":\"wrongpassword\"}')",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/api/auth/me)",
+      "Bash(curl -s -b /tmp/cookies_a.txt http://localhost:3000/api/auth/me)",
+      "Bash(curl -s -b /tmp/cookies_b.txt http://localhost:3000/api/auth/me)",
+      "Bash(curl -s -b /tmp/cookies_a.txt -X PATCH http://localhost:3000/api/profile -H 'Content-Type: application/json' -d '{\"displayName\":\"Alice A.\",\"currency\":\"usd\",\"timezone\":\"America/New_York\"}')",
+      "Bash(curl -s -b /tmp/cookies_a.txt -c /tmp/cookies_a.txt -X POST http://localhost:3000/api/auth/logout)",
+      "Bash(curl -s -b /tmp/cookies_a.txt -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/api/auth/me)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{redirect_url}\\\\n\" http://localhost:3000/dashboard)",
+      "Bash(curl -s -b /tmp/cookies_b.txt -o /dev/null -w \"%{http_code} %{redirect_url}\\\\n\" http://localhost:3000/login)",
+      "Bash(curl -s -b /tmp/cookies_b.txt http://localhost:3000/dashboard)",
+      "Bash(curl -s -b /tmp/cookies_b.txt http://localhost:3000/profile)",
+      "Bash(curl -s http://localhost:3000/login)",
+      "Bash(powershell -NoProfile -Command \"Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique\")",
+      "Bash(powershell -NoProfile -Command \"Stop-Process -Id 12792 -Force -ErrorAction SilentlyContinue\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/)"
+    ],
+    "additionalDirectories": [
+      "d:\\Personal\\Project Docs\\personal-finance-app-planning-docs\\scaffold-tmp\\.git"
+    ]
+  }
+}
