@@ -1,13 +1,11 @@
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getServerAuthUser } from "@/server/auth/session";
 import { getCurrentUser } from "@/server/services/auth.service";
 import { LogoutButton } from "@/components/auth/logout-button";
-import { Button } from "@/components/ui/button";
 
-// Placeholder landing page for Phase 1 (auth). The real dashboard
-// (balances, budget progress, charts, recent transactions) is built in
-// Phase 5 once accounts, categories, transactions, and budgets exist.
+// Placeholder landing page. The real dashboard (balances, budget progress,
+// charts, recent transactions) is built in Phase 5 once budgets exist too.
+// Use the nav above to manage accounts, categories, and transactions.
 export default async function DashboardPage() {
   const auth = await getServerAuthUser();
   if (!auth) {
@@ -29,12 +27,9 @@ export default async function DashboardPage() {
       </div>
       <p className="text-sm text-muted-foreground">
         The full dashboard (balances, budgets, charts) will appear here once
-        accounts, transactions, and budgets are implemented.
+        budgets are implemented in Phase 4.
       </p>
-      <div className="flex gap-3">
-        <Button render={<Link href="/profile" />}>Complete your profile</Button>
-        <LogoutButton />
-      </div>
+      <LogoutButton />
     </div>
   );
 }

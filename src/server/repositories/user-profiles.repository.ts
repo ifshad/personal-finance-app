@@ -1,3 +1,4 @@
+import type { Knex } from "knex";
 import { db } from "@/server/db/client";
 import type { UserProfileRow } from "@/types/db";
 
@@ -27,9 +28,12 @@ export function findProfileByUserId(
 
 export async function createProfile(
   input: NewUserProfile,
+  conn: Knex = db,
 ): Promise<UserProfileRow> {
-  await db<UserProfileRow>(TABLE).insert(input);
-  const profile = await findProfileByUserId(input.user_id);
+  await conn<UserProfileRow>(TABLE).insert(input);
+  const profile = await conn<UserProfileRow>(TABLE)
+    .where({ user_id: input.user_id })
+    .first();
   if (!profile) {
     throw new Error("Failed to load profile immediately after creation");
   }

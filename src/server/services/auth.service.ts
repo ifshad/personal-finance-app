@@ -1,5 +1,6 @@
 import { ApiError } from "@/lib/api-error";
 import type { LoginInput, RegisterInput } from "@/lib/validation/auth";
+import { db } from "@/server/db/client";
 import { signAuthToken } from "@/server/auth/jwt";
 import { hashPassword, verifyPassword } from "@/server/auth/password";
 import {
@@ -16,6 +17,7 @@ import {
   findRoleById,
   findRoleByName,
 } from "@/server/repositories/roles.repository";
+import { seedDefaultCategoriesForUser } from "./default-categories";
 import { toPublicUser, type PublicUser } from "./user.mapper";
 
 export type AuthResult = {
@@ -37,17 +39,30 @@ export async function registerUser(input: RegisterInput): Promise<AuthResult> {
   }
 
   const passwordHash = await hashPassword(input.password);
-  const user = await createUser({
-    email: input.email,
-    password_hash: passwordHash,
-    role_id: role.id,
-  });
 
-  const profile = await createProfile({
-    user_id: user.id,
-    first_name: input.firstName ?? null,
-    last_name: input.lastName ?? null,
-    display_name: input.firstName ?? null,
+  // User creation, profile creation, and default category seeding must
+  // succeed or fail together — a partially-created user (e.g. with no
+  // categories to record transactions against) is worse than a failed
+  // registration the user can just retry.
+  const { user, profile } = await db.transaction(async (trx) => {
+    const createdUser = await createUser(
+      { email: input.email, password_hash: passwordHash, role_id: role.id },
+      trx,
+    );
+
+    const createdProfile = await createProfile(
+      {
+        user_id: createdUser.id,
+        first_name: input.firstName ?? null,
+        last_name: input.lastName ?? null,
+        display_name: input.firstName ?? null,
+      },
+      trx,
+    );
+
+    await seedDefaultCategoriesForUser(trx, createdUser.id);
+
+    return { user: createdUser, profile: createdProfile };
   });
 
   const token = await signAuthToken({

@@ -44,3 +44,7 @@ export function apiPost<T>(url: string, payload: unknown): Promise<T> {
 export function apiPatch<T>(url: string, payload: unknown): Promise<T> {
   return apiRequest<T>(url, { method: "PATCH", body: JSON.stringify(payload) });
 }
+
+export function apiDelete<T>(url: string): Promise<T> {
+  return apiRequest<T>(url, { method: "DELETE" });
+}

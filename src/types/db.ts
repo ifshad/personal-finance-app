@@ -30,3 +30,48 @@ export type UserProfileRow = {
   created_at: Date;
   updated_at: Date;
 };
+
+export type AccountType = "CASH" | "BANK" | "MOBILE_WALLET" | "CARD" | "OTHER";
+
+export type AccountRow = {
+  id: number;
+  user_id: number;
+  name: string;
+  account_type: AccountType;
+  opening_balance: string; // DECIMAL(15,2) comes back from mysql2 as a string
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+};
+
+export type CategoryType = "INCOME" | "EXPENSE";
+
+export type CategoryRow = {
+  id: number;
+  user_id: number;
+  parent_id: number | null;
+  name: string;
+  type: CategoryType;
+  icon: string | null;
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+};
+
+export type TransactionType = "INCOME" | "EXPENSE" | "TRANSFER";
+
+export type TransactionRow = {
+  id: number;
+  user_id: number;
+  type: TransactionType;
+  amount: string; // DECIMAL(15,2) as a string
+  account_id: number | null;
+  category_id: number | null;
+  from_account_id: number | null;
+  to_account_id: number | null;
+  description: string | null;
+  notes: string | null;
+  transaction_date: string; // DATE column, returned as "YYYY-MM-DD"
+  created_at: Date;
+  updated_at: Date;
+};
