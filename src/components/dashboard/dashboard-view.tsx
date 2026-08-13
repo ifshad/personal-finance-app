@@ -54,7 +54,7 @@ export function DashboardView({
   const isSavingsPositive = !data.monthlySavings.startsWith("-");
 
   return (
-    <div className="mx-auto w-full max-w-md space-y-6 p-4 pb-24">
+    <div className="mx-auto w-full max-w-md md:max-w-2xl space-y-6 p-4 pb-24">
       <div>
         <p className="text-sm text-muted-foreground">{periodLabel}</p>
         <h1 className="text-xl font-semibold text-foreground">Hi, {greetingName}</h1>
@@ -150,7 +150,7 @@ export function DashboardView({
             <IncomeExpenseTrendChart data={trendPoints} currency={currency} />
           </div>
 
-          <div className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div className="space-y-2 rounded-lg border border-border bg-card p-4">
               <p className="text-sm font-medium text-foreground">Daily income</p>
               <DailyBarChart

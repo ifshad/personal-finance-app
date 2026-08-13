@@ -64,7 +64,13 @@ src/lib/               Shared client+server utilities (env, api client/response,
 
 ## Status
 
-Implemented so far: project foundation, authentication (register/login/logout),
-JWT sessions via httpOnly cookie, profile completion. See `docs/05-implementation-plan.md`
-for the remaining phases (accounts, categories, transactions, budgets, dashboard,
-reports, visual polish, hardening).
+MVP complete per `docs/05-implementation-plan.md`. A new user can register, log
+in, complete their profile, create accounts and categories, record income/
+expense/transfers, create a monthly budget and track it against real spending,
+and view the dashboard and reports (daily/monthly/half-yearly/yearly, with
+charts) — all fully isolated per user, mobile-first with a light/dark sea-green
+theme.
+
+Not built (explicitly out of MVP scope per `docs/01-product-requirements.md` §8):
+admin panel, multi-currency, bank integrations/imports, recurring transactions,
+financial goals, notifications, receipts/attachments.

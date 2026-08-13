@@ -30,7 +30,7 @@ export function BudgetDetailView({ budget, categories, currency }: BudgetDetailV
   const isOverBudget = overallPercentage > 100;
 
   return (
-    <div className="mx-auto w-full max-w-md space-y-6 p-4 pb-24">
+    <div className="mx-auto w-full max-w-md md:max-w-2xl space-y-6 p-4 pb-24">
       <div>
         <h1 className="text-xl font-semibold text-foreground">
           {budget.name || formatPeriodLabel(budget.periodStart)}

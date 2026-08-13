@@ -76,7 +76,7 @@ export function ReportsView({ initialReport, initialQuery, currency }: ReportsVi
   const budget = report.budgetAnalysis;
 
   return (
-    <div className="mx-auto w-full max-w-md space-y-6 p-4 pb-24">
+    <div className="mx-auto w-full max-w-md md:max-w-2xl space-y-6 p-4 pb-24">
       <div>
         <h1 className="text-xl font-semibold text-foreground">Reports</h1>
         <p className="text-sm text-muted-foreground">{formatRangeLabel(report.range)}</p>

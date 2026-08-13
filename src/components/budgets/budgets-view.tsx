@@ -23,7 +23,7 @@ export function BudgetsView({ budgets, currency }: BudgetsViewProps) {
   const [createOpen, setCreateOpen] = useState(false);
 
   return (
-    <div className="mx-auto w-full max-w-md space-y-4 p-4 pb-24">
+    <div className="mx-auto w-full max-w-md md:max-w-2xl space-y-4 p-4 pb-24">
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-semibold text-foreground">Budgets</h1>
         <Button onClick={() => setCreateOpen(true)}>

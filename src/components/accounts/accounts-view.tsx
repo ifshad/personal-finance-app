@@ -25,7 +25,7 @@ export function AccountsView({ accounts, totalBalance, currency }: AccountsViewP
   }
 
   return (
-    <div className="mx-auto w-full max-w-md space-y-6 p-4 pb-24">
+    <div className="mx-auto w-full max-w-md md:max-w-2xl space-y-6 p-4 pb-24">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm text-muted-foreground">Total balance</p>
