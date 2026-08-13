@@ -1,11 +1,11 @@
 import { redirect } from "next/navigation";
 import { getServerAuthUser } from "@/server/auth/session";
 import { getCurrentUser } from "@/server/services/auth.service";
-import { LogoutButton } from "@/components/auth/logout-button";
+import { listAccountsForUser } from "@/server/services/accounts.service";
+import { listCategories } from "@/server/services/categories.service";
+import { getDashboardData } from "@/server/services/dashboard.service";
+import { DashboardView } from "@/components/dashboard/dashboard-view";
 
-// Placeholder landing page. The real dashboard (balances, budget progress,
-// charts, recent transactions) is built in Phase 5 once budgets exist too.
-// Use the nav above to manage accounts, categories, and transactions.
 export default async function DashboardPage() {
   const auth = await getServerAuthUser();
   if (!auth) {
@@ -13,23 +13,29 @@ export default async function DashboardPage() {
   }
 
   const user = await getCurrentUser(auth.userId);
+  const timezone = user.profile?.timezone ?? "Asia/Dhaka";
+  const currency = user.profile?.currency ?? "BDT";
   const name = user.profile?.displayName || user.profile?.firstName || user.email;
 
+  const [data, { accounts }, categories] = await Promise.all([
+    getDashboardData(auth.userId, timezone),
+    listAccountsForUser(auth.userId),
+    listCategories(auth.userId),
+  ]);
+
+  const periodLabel = new Date(`${data.monthRange.start}T00:00:00`).toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
+  });
+
   return (
-    <div className="mx-auto w-full max-w-md space-y-6 p-4 pb-24">
-      <div>
-        <h1 className="text-xl font-semibold text-foreground">
-          Welcome, {name}
-        </h1>
-        <p className="text-sm text-muted-foreground">
-          You&apos;re logged in as {user.email}.
-        </p>
-      </div>
-      <p className="text-sm text-muted-foreground">
-        The full dashboard (balances, budgets, charts) will appear here once
-        budgets are implemented in Phase 4.
-      </p>
-      <LogoutButton />
-    </div>
+    <DashboardView
+      data={data}
+      currency={currency}
+      periodLabel={periodLabel}
+      greetingName={name}
+      accounts={accounts}
+      categories={categories}
+    />
   );
 }

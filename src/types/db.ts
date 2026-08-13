@@ -75,3 +75,22 @@ export type TransactionRow = {
   created_at: Date;
   updated_at: Date;
 };
+
+export type BudgetRow = {
+  id: number;
+  user_id: number;
+  name: string | null;
+  period_start: string; // DATE, "YYYY-MM-DD"
+  period_end: string;
+  created_at: Date;
+  updated_at: Date;
+};
+
+export type BudgetItemRow = {
+  id: number;
+  budget_id: number;
+  category_id: number;
+  planned_amount: string; // DECIMAL(15,2) as a string
+  created_at: Date;
+  updated_at: Date;
+};

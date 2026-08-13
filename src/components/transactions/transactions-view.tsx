@@ -76,8 +76,6 @@ export function TransactionsView({
     () => new Map(categories.map((category) => [category.id, category.name])),
     [categories],
   );
-  const accountName = (id: number | null) => (id ? accountsById.get(id) ?? "—" : "—");
-  const categoryName = (id: number | null) => (id ? categoriesById.get(id) ?? "—" : "—");
 
   async function loadPage(nextPage: number, filter: TransactionType | "ALL", replace: boolean) {
     setIsLoading(true);
@@ -149,8 +147,8 @@ export function TransactionsView({
                     <TransactionRow
                       transaction={transaction}
                       currency={currency}
-                      accountName={accountName}
-                      categoryName={categoryName}
+                      accountNames={accountsById}
+                      categoryNames={categoriesById}
                       onClick={() => setEditingTransaction(transaction)}
                     />
                   </li>

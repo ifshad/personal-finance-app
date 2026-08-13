@@ -84,12 +84,39 @@
       "Bash(grep -i \"error\\\\|Error:\" /tmp/dev.log | tail -30)",
       "Bash(curl -s -b /tmp/cookies_b.txt http://localhost:3000/accounts)",
       "Bash(curl -s -b /tmp/cookies_b.txt http://localhost:3000/transactions)",
-      "Bash(powershell -NoProfile -Command \"Stop-Process -Id 20560 -Force -ErrorAction SilentlyContinue\")"
+      "Bash(powershell -NoProfile -Command \"Stop-Process -Id 20560 -Force -ErrorAction SilentlyContinue\")",
+      "Bash(cd \"d:/Personal/Project Docs/personal-finance-app-planning-docs\" && mkdir -p \"src/app/api/budgets/[id]/items/[itemId]\")",
+      "Bash(cd \"d:/Personal/Project Docs/personal-finance-app-planning-docs\" && mkdir -p src/components/budgets \"src/app/\\(app\\)/budgets/[id]\")",
+      "Bash(npx --yes shadcn@latest add progress --yes)",
+      "Bash(curl -s -b /tmp/cookies_c.txt http://localhost:3000/api/auth/me)",
+      "Bash(curl -s -b /tmp/cookies_c.txt http://localhost:3000/api/accounts)",
+      "Bash(curl -s -b /tmp/cookies_c.txt \"http://localhost:3000/api/transactions?pageSize=50\")",
+      "Bash(curl -s -b /tmp/cookies_c.txt -X POST http://localhost:3000/api/budgets -H 'Content-Type: application/json' -d '{\"name\":\"August budget\",\"periodStart\":\"2026-08-01\",\"periodEnd\":\"2026-08-31\"}')",
+      "Bash(curl -s -b /tmp/cookies_c.txt -X POST http://localhost:3000/api/budgets/1/items -H 'Content-Type: application/json' -d '{\"categoryId\":6,\"plannedAmount\":\"500.00\"}')",
+      "Bash(curl -s -b /tmp/cookies_c.txt http://localhost:3000/api/budgets/1)",
+      "Bash(curl -s -b /tmp/cookies_c.txt http://localhost:3000/api/budgets)",
+      "Bash(curl -s -o /tmp/dashboard.html -w \"HTTP %{http_code}\\\\n\" -b /tmp/cookies_c.txt http://localhost:3000/dashboard)",
+      "Bash(tail -100 /tmp/dev.log | grep -A 40 \"Error\\\\|error\")",
+      "Bash(tail -20 /tmp/dev.log)",
+      "Bash(curl -s -b /tmp/cookies_c.txt http://localhost:3000/budgets)",
+      "Bash(curl -s -b /tmp/cookies_c.txt http://localhost:3000/budgets/1)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" -b /tmp/cookies_b.txt http://localhost:3000/budgets/1)",
+      "Bash(curl -s -b /tmp/cookies_b.txt http://localhost:3000/budgets)",
+      "Bash(tail -5 /tmp/dev.log)",
+      "Bash(curl -s -b /tmp/cookies_c.txt \"http://localhost:3000/api/reports?periodType=month&year=2026&month=8\")",
+      "Bash(curl -s -b /tmp/cookies_c.txt \"http://localhost:3000/api/reports?periodType=today\")",
+      "Bash(curl -s -b /tmp/cookies_c.txt \"http://localhost:3000/api/reports?periodType=year&year=2026\")",
+      "Bash(curl -s -b /tmp/cookies_c.txt \"http://localhost:3000/api/reports?periodType=custom&dateFrom=2026-08-01&dateTo=2026-08-31\")",
+      "Bash(curl -s -b /tmp/cookies_b.txt \"http://localhost:3000/api/reports?periodType=month&year=2026&month=8\")",
+      "Bash(curl -s -o /tmp/reports.html -w \"HTTP %{http_code}\\\\n\" -b /tmp/cookies_c.txt http://localhost:3000/reports)",
+      "Bash(powershell -NoProfile -Command \"Stop-Process -Id 20436 -Force -ErrorAction SilentlyContinue\")"
     ],
     "additionalDirectories": [
       "d:\\Personal\\Project Docs\\personal-finance-app-planning-docs\\scaffold-tmp\\.git",
       "D:\\Personal\\Project Docs\\personal-finance-app-planning-docs\\src\\app\\api\\accounts",
-      "D:\\Personal\\Project Docs\\personal-finance-app-planning-docs\\src\\app\\api\\transactions"
+      "D:\\Personal\\Project Docs\\personal-finance-app-planning-docs\\src\\app\\api\\transactions",
+      "D:\\Personal\\Project Docs\\personal-finance-app-planning-docs\\src\\app\\api\\budgets\\[id]\\items",
+      "D:\\Personal\\Project Docs\\personal-finance-app-planning-docs\\src\\app\\(app)\\budgets"
     ]
   }
 }
