@@ -133,7 +133,9 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" -b /tmp/cookies_dave.txt http://localhost:3000/api/budgets/1)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" -b /tmp/cookies_dave.txt http://localhost:3000/api/transactions/1)",
       "Bash(tail -30 /tmp/dev.log | grep -i \"error\\\\|⨯\" )",
-      "Bash(powershell -NoProfile -Command \"Stop-Process -Id 19064 -Force -ErrorAction SilentlyContinue\")"
+      "Bash(powershell -NoProfile -Command \"Stop-Process -Id 19064 -Force -ErrorAction SilentlyContinue\")",
+      "Bash(node -e \"console.log\\(require\\('./node_modules/next/package.json'\\).bin\\)\")",
+      "Bash(node -c ecosystem.config.js)"
     ],
     "additionalDirectories": [
       "d:\\Personal\\Project Docs\\personal-finance-app-planning-docs\\scaffold-tmp\\.git",

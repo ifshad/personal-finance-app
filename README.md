@@ -48,6 +48,28 @@ this implementation.
 - `npm run db:migrate:make -- <name>` — create a new migration
 - `npm run db:seed` / `db:seed:make -- <name>`
 
+## Production deploy (PM2)
+
+`ecosystem.config.js` defines the PM2 process for `next start`. PM2 only
+manages the running server — build and migrate on the server first:
+
+```bash
+npm ci
+npm run build
+npm run db:migrate
+pm2 start ecosystem.config.js --env production
+```
+
+Redeploy after a change:
+
+```bash
+npm ci && npm run build && npm run db:migrate
+pm2 reload ecosystem.config.js --env production
+```
+
+Make sure a real `.env.local` (with production `DB_*`/`JWT_SECRET` values)
+exists on the server — Next.js loads it at runtime, PM2 doesn't inject it.
+
 ## Project structure
 
 ```
