@@ -22,6 +22,16 @@ const envSchema = z.object({
   JWT_SECRET: z.string().min(16, "JWT_SECRET must be at least 16 characters"),
   // Single stateless auth token lifetime (e.g. 15m, 7d). See src/server/auth.
   JWT_EXPIRES_IN: z.string().default("7d"),
+
+  // Whether the auth cookie should be marked `Secure` (HTTPS-only). This is
+  // intentionally decoupled from NODE_ENV: a production deployment behind
+  // plain HTTP (no domain/TLS yet) must NOT set Secure, or browsers silently
+  // drop the cookie and logged-in users never leave the login page. Flip
+  // this to "true" once the app is served over HTTPS.
+  COOKIE_SECURE: z
+    .enum(["true", "false"])
+    .default("false")
+    .transform((value) => value === "true"),
 });
 
 type Env = z.infer<typeof envSchema>;

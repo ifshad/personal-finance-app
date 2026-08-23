@@ -11,7 +11,7 @@ const AUTH_COOKIE_MAX_AGE_SECONDS = 60 * 60 * 24 * 7;
 export function setAuthCookie(response: NextResponse, token: string): void {
   response.cookies.set(AUTH_COOKIE_NAME, token, {
     httpOnly: true,
-    secure: env.NODE_ENV === "production",
+    secure: env.COOKIE_SECURE,
     sameSite: "lax",
     path: "/",
     maxAge: AUTH_COOKIE_MAX_AGE_SECONDS,
@@ -21,7 +21,7 @@ export function setAuthCookie(response: NextResponse, token: string): void {
 export function clearAuthCookie(response: NextResponse): void {
   response.cookies.set(AUTH_COOKIE_NAME, "", {
     httpOnly: true,
-    secure: env.NODE_ENV === "production",
+    secure: env.COOKIE_SECURE,
     sameSite: "lax",
     path: "/",
     maxAge: 0,
