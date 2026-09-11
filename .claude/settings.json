@@ -135,14 +135,40 @@
       "Bash(tail -30 /tmp/dev.log | grep -i \"error\\\\|⨯\" )",
       "Bash(powershell -NoProfile -Command \"Stop-Process -Id 19064 -Force -ErrorAction SilentlyContinue\")",
       "Bash(node -e \"console.log\\(require\\('./node_modules/next/package.json'\\).bin\\)\")",
-      "Bash(node -c ecosystem.config.js)"
+      "Bash(node -c ecosystem.config.js)",
+      "Bash(curl -sf http://localhost:3000)",
+      "Bash(curl -sf http://localhost:3001)",
+      "Read(//d//**)",
+      "Read(//c/Users/USER/.claude/**)",
+      "Bash(npm root *)",
+      "Bash(node -e \"console.log\\(require.resolve\\('playwright'\\)\\)\")",
+      "Bash(npm ls *)",
+      "Bash(where.exe chromium-cli *)",
+      "Bash(where.exe npx *)",
+      "Bash(where.exe msedge.exe)",
+      "Read(//c/Program Files \\\\\\(x86\\\\\\)/Microsoft/Edge/Application//**)",
+      "Read(//c/Program Files/Microsoft/Edge/**)",
+      "Bash(mkdir -p \"C:/Users/USER/AppData/Local/Temp/claude/d--Personal-Projects-personal-finance-app/15d5d208-cd1c-4639-b8e5-d495c422fc13/scratchpad/screenshots\")",
+      "Bash(node \"C:/Users/USER/AppData/Local/Temp/claude/d--Personal-Projects-personal-finance-app/15d5d208-cd1c-4639-b8e5-d495c422fc13/scratchpad/shots.js\")",
+      "Bash(export NODE_PATH=\"D:/Personal/Projects/personal-finance-app/node_modules\")",
+      "Bash(rm -f \"C:/Users/USER/AppData/Local/Temp/claude/d--Personal-Projects-personal-finance-app/15d5d208-cd1c-4639-b8e5-d495c422fc13/scratchpad/screenshots/\"* *)",
+      "Bash(python3 -)",
+      "Bash(rm -f \"C:/Users/USER/AppData/Local/Temp/claude/d--Personal-Projects-personal-finance-app/15d5d208-cd1c-4639-b8e5-d495c422fc13/scratchpad/screenshots/\"*)",
+      "Bash(mkdir -p screenshots)",
+      "Bash(cp __TRACKED_VAR__/01-login.png screenshots/01-login.png)",
+      "Bash(cp __TRACKED_VAR__/00-register.png screenshots/02-register.png)",
+      "Bash(cp __TRACKED_VAR__/02-dashboard.png screenshots/03-dashboard-light.png)",
+      "Bash(cp __TRACKED_VAR__/08-dashboard-dark.png screenshots/04-dashboard-dark.png)",
+      "Bash(rm -rf node_modules/playwright-core node_modules/.package-lock.json.bak)",
+      "Bash(npm dedupe *)"
     ],
     "additionalDirectories": [
       "d:\\Personal\\Project Docs\\personal-finance-app-planning-docs\\scaffold-tmp\\.git",
       "D:\\Personal\\Project Docs\\personal-finance-app-planning-docs\\src\\app\\api\\accounts",
       "D:\\Personal\\Project Docs\\personal-finance-app-planning-docs\\src\\app\\api\\transactions",
       "D:\\Personal\\Project Docs\\personal-finance-app-planning-docs\\src\\app\\api\\budgets\\[id]\\items",
-      "D:\\Personal\\Project Docs\\personal-finance-app-planning-docs\\src\\app\\(app)\\budgets"
+      "D:\\Personal\\Project Docs\\personal-finance-app-planning-docs\\src\\app\\(app)\\budgets",
+      "C:\\Users\\USER\\AppData\\Local\\Temp\\claude\\d--Personal-Projects-personal-finance-app\\15d5d208-cd1c-4639-b8e5-d495c422fc13\\scratchpad\\screenshots"
     ]
   }
 }
